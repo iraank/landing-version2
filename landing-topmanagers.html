@@ -1,0 +1,811 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Діагностика лідерського потенціалу — Іра Анк</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+:root {
+  --emerald: #006B4E;
+  --emerald-dark: #004D38;
+  --emerald-deep: #002E22;
+  --emerald-light: #E8F5F0;
+  --gold: #C5A55A;
+  --gold-light: #F5EFE0;
+  --dark: #1A1A1A;
+  --gray: #6B7280;
+  --white: #FFFFFF;
+  --bg: #FAFAF8;
+}
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body {
+  font-family: 'Inter', -apple-system, sans-serif;
+  color: var(--dark);
+  background: var(--bg);
+  line-height: 1.7;
+  -webkit-font-smoothing: antialiased;
+}
+.container { max-width: 800px; margin: 0 auto; padding: 0 24px; }
+
+/* HERO */
+.hero {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  background: var(--emerald-deep);
+  position: relative;
+  overflow: hidden;
+  padding: 80px 24px;
+}
+.hero::before {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, var(--gold), transparent);
+}
+.hero::after {
+  content: '';
+  position: absolute;
+  top: 10%;
+  right: -10%;
+  width: 60%;
+  height: 80%;
+  background: radial-gradient(ellipse, rgba(0, 107, 78, 0.3) 0%, transparent 70%);
+  pointer-events: none;
+}
+.hero-content {
+  position: relative;
+  z-index: 2;
+  max-width: 680px;
+  margin: 0 auto;
+}
+.hero-eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  color: var(--gold);
+  font-size: 13px;
+  font-weight: 500;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  margin-bottom: 32px;
+}
+.hero-eyebrow::before {
+  content: '';
+  width: 24px;
+  height: 1px;
+  background: var(--gold);
+}
+.hero h1 {
+  font-family: 'Playfair Display', serif;
+  font-size: clamp(34px, 5vw, 54px);
+  font-weight: 700;
+  color: var(--white);
+  line-height: 1.15;
+  margin-bottom: 28px;
+}
+.hero h1 em {
+  font-style: normal;
+  color: var(--gold);
+}
+.hero-sub {
+  font-size: 18px;
+  color: rgba(255,255,255,0.65);
+  max-width: 520px;
+  margin-bottom: 48px;
+  font-weight: 300;
+  line-height: 1.8;
+}
+.cta-group { display: flex; align-items: center; gap: 24px; flex-wrap: wrap; }
+.cta-primary {
+  display: inline-block;
+  padding: 18px 44px;
+  background: var(--gold);
+  color: var(--dark);
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 15px;
+  border-radius: 6px;
+  transition: all 0.3s ease;
+  letter-spacing: 0.3px;
+}
+.cta-primary:hover {
+  background: #D4B56A;
+  transform: translateY(-2px);
+  box-shadow: 0 8px 30px rgba(197, 165, 90, 0.25);
+}
+.cta-note {
+  font-size: 13px;
+  color: rgba(255,255,255,0.35);
+}
+
+/* SECTION STYLES */
+.section-label {
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 2.5px;
+  text-transform: uppercase;
+  color: var(--gold);
+  margin-bottom: 16px;
+}
+
+/* TENSION */
+.tension {
+  padding: 100px 24px;
+  background: var(--white);
+}
+.tension h2 {
+  font-family: 'Playfair Display', serif;
+  font-size: clamp(24px, 3.2vw, 34px);
+  line-height: 1.4;
+  margin-bottom: 48px;
+  max-width: 600px;
+}
+.tension-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 24px;
+}
+@media (max-width: 640px) {
+  .tension-grid { grid-template-columns: 1fr; }
+}
+.tension-card {
+  padding: 32px;
+  border-radius: 12px;
+  border: 1px solid #F0F0F0;
+  transition: border-color 0.3s;
+}
+.tension-card:hover { border-color: var(--emerald); }
+.tension-card h3 {
+  font-size: 16px;
+  font-weight: 600;
+  margin-bottom: 10px;
+  color: var(--emerald-dark);
+}
+.tension-card p {
+  font-size: 15px;
+  color: var(--gray);
+  line-height: 1.6;
+}
+
+/* DIAGNOSTIC */
+.diagnostic {
+  padding: 100px 24px;
+  background: linear-gradient(180deg, var(--bg) 0%, var(--emerald-light) 100%);
+}
+.diagnostic-inner {
+  max-width: 700px;
+  margin: 0 auto;
+}
+.diagnostic h2 {
+  font-family: 'Playfair Display', serif;
+  font-size: clamp(26px, 3.5vw, 38px);
+  margin-bottom: 16px;
+  text-align: center;
+}
+.diagnostic-sub {
+  text-align: center;
+  color: var(--gray);
+  font-size: 17px;
+  margin-bottom: 56px;
+  max-width: 500px;
+  margin-left: auto;
+  margin-right: auto;
+}
+.diag-timeline {
+  position: relative;
+  padding-left: 40px;
+}
+.diag-timeline::before {
+  content: '';
+  position: absolute;
+  left: 15px;
+  top: 0;
+  bottom: 0;
+  width: 2px;
+  background: linear-gradient(180deg, var(--emerald), var(--gold));
+}
+.diag-step {
+  position: relative;
+  margin-bottom: 40px;
+}
+.diag-step:last-child { margin-bottom: 0; }
+.diag-step::before {
+  content: '';
+  position: absolute;
+  left: -33px;
+  top: 4px;
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  background: var(--emerald);
+  border: 3px solid var(--emerald-light);
+}
+.diag-step h3 {
+  font-size: 17px;
+  font-weight: 600;
+  margin-bottom: 6px;
+}
+.diag-step p {
+  font-size: 15px;
+  color: var(--gray);
+  line-height: 1.6;
+}
+
+/* ASSESSMENT QUIZ */
+.assessment {
+  padding: 100px 24px;
+  background: var(--white);
+}
+.assessment-inner {
+  max-width: 640px;
+  margin: 0 auto;
+}
+.assessment h2 {
+  font-family: 'Playfair Display', serif;
+  font-size: clamp(26px, 3.5vw, 36px);
+  text-align: center;
+  margin-bottom: 12px;
+}
+.assessment-sub {
+  text-align: center;
+  color: var(--gray);
+  font-size: 16px;
+  margin-bottom: 48px;
+}
+.quiz-progress {
+  height: 4px;
+  background: #E5E7EB;
+  border-radius: 4px;
+  margin-bottom: 32px;
+  overflow: hidden;
+}
+.quiz-progress-bar {
+  height: 100%;
+  background: linear-gradient(90deg, var(--emerald), var(--gold));
+  border-radius: 4px;
+  transition: width 0.5s ease;
+}
+.quiz-card {
+  background: var(--bg);
+  border-radius: 16px;
+  padding: 40px;
+  margin-bottom: 20px;
+}
+.quiz-q {
+  font-size: 17px;
+  font-weight: 500;
+  margin-bottom: 24px;
+  line-height: 1.5;
+}
+.quiz-q small {
+  display: block;
+  font-size: 13px;
+  color: var(--gray);
+  font-weight: 400;
+  margin-top: 4px;
+}
+.quiz-options { display: flex; flex-direction: column; gap: 12px; }
+.quiz-option {
+  padding: 16px 20px;
+  background: var(--white);
+  border: 2px solid #E5E7EB;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: all 0.2s;
+  font-size: 15px;
+  line-height: 1.5;
+}
+.quiz-option:hover {
+  border-color: var(--emerald);
+  background: var(--emerald-light);
+}
+.quiz-option.selected {
+  border-color: var(--emerald);
+  background: var(--emerald-light);
+  font-weight: 500;
+}
+.quiz-nav {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 24px;
+}
+.quiz-btn {
+  padding: 14px 32px;
+  border: none;
+  border-radius: 8px;
+  font-size: 15px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s;
+  font-family: 'Inter', sans-serif;
+}
+.quiz-btn-back { background: transparent; color: var(--gray); }
+.quiz-btn-next { background: var(--emerald); color: var(--white); }
+.quiz-btn-next:hover { background: var(--emerald-dark); }
+.quiz-btn:disabled { opacity: 0.4; cursor: not-allowed; }
+
+/* RESULT */
+.quiz-result {
+  display: none;
+  text-align: center;
+  padding: 48px 32px;
+  border-radius: 16px;
+  border: 2px solid var(--emerald);
+  background: var(--white);
+}
+.result-label {
+  font-size: 12px;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: var(--emerald);
+  font-weight: 600;
+  margin-bottom: 12px;
+}
+.quiz-score {
+  font-size: 56px;
+  font-weight: 700;
+  color: var(--emerald-dark);
+  font-family: 'Playfair Display', serif;
+}
+.quiz-score span { font-size: 20px; color: var(--gray); }
+.score-bar-wrap {
+  max-width: 300px;
+  margin: 20px auto;
+  height: 8px;
+  background: #E5E7EB;
+  border-radius: 8px;
+  overflow: hidden;
+}
+.score-bar-fill {
+  height: 100%;
+  background: linear-gradient(90deg, var(--emerald), var(--gold));
+  border-radius: 8px;
+  transition: width 1s ease;
+}
+.quiz-verdict {
+  font-size: 16px;
+  color: var(--gray);
+  line-height: 1.7;
+  max-width: 460px;
+  margin: 20px auto 32px;
+}
+
+/* WHO */
+.who {
+  padding: 100px 24px;
+  background: var(--bg);
+}
+.who-inner {
+  max-width: 700px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 1fr 1.4fr;
+  gap: 56px;
+  align-items: center;
+}
+@media (max-width: 640px) {
+  .who-inner { grid-template-columns: 1fr; gap: 40px; }
+}
+.who-photo {
+  width: 100%;
+  aspect-ratio: 1;
+  border-radius: 16px;
+  background: var(--emerald-light);
+  border: 2px dashed rgba(0,107,78,0.15);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--emerald);
+  font-size: 14px;
+}
+.who-text h2 {
+  font-family: 'Playfair Display', serif;
+  font-size: 28px;
+  margin-bottom: 20px;
+}
+.who-text p {
+  font-size: 16px;
+  color: var(--gray);
+  margin-bottom: 14px;
+}
+.who-list {
+  list-style: none;
+  margin-top: 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+.who-list li {
+  font-size: 15px;
+  display: flex;
+  align-items: baseline;
+  gap: 10px;
+}
+.who-list li::before {
+  content: '';
+  width: 6px;
+  height: 6px;
+  min-width: 6px;
+  background: var(--gold);
+  border-radius: 50%;
+  margin-top: 6px;
+}
+
+/* FORM */
+.form-section {
+  padding: 100px 24px;
+  background: var(--emerald-deep);
+  position: relative;
+}
+.form-section::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, var(--gold), transparent);
+}
+.form-inner {
+  max-width: 520px;
+  margin: 0 auto;
+  text-align: center;
+}
+.form-inner h2 {
+  font-family: 'Playfair Display', serif;
+  font-size: clamp(26px, 3.5vw, 36px);
+  color: var(--white);
+  margin-bottom: 12px;
+}
+.form-inner p {
+  color: rgba(255,255,255,0.6);
+  font-size: 16px;
+  margin-bottom: 40px;
+}
+.form-stack {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  margin-bottom: 16px;
+}
+.form-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+}
+@media (max-width: 480px) {
+  .form-row { grid-template-columns: 1fr; }
+}
+.form-input {
+  padding: 16px 20px;
+  border: 1px solid rgba(255,255,255,0.15);
+  border-radius: 8px;
+  background: rgba(255,255,255,0.06);
+  color: var(--white);
+  font-size: 15px;
+  font-family: 'Inter', sans-serif;
+  outline: none;
+  transition: all 0.3s;
+}
+.form-input::placeholder { color: rgba(255,255,255,0.3); }
+.form-input:focus { border-color: var(--gold); background: rgba(255,255,255,0.1); }
+.form-submit {
+  width: 100%;
+  padding: 18px;
+  background: var(--gold);
+  color: var(--dark);
+  border: none;
+  border-radius: 8px;
+  font-size: 16px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s;
+  font-family: 'Inter', sans-serif;
+}
+.form-submit:hover { background: #D4B56A; }
+.form-note {
+  margin-top: 16px;
+  font-size: 13px;
+  color: rgba(255,255,255,0.3);
+}
+
+/* FOOTER */
+footer {
+  padding: 40px 24px;
+  text-align: center;
+  background: var(--dark);
+  color: rgba(255,255,255,0.3);
+  font-size: 13px;
+}
+footer a { color: var(--gold); text-decoration: none; }
+</style>
+</head>
+<body>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-content">
+    <div class="hero-eyebrow">Для керівників і топ-менеджерів</div>
+    <h1>Ви керуєте всім.<br>Крім <em>власного потенціалу.</em></h1>
+    <p class="hero-sub">Пройдіть тест "Стеля впливу" і дізнайтесь, що саме не дає вам рости далі — навіть коли ви робите все правильно.</p>
+    <div class="cta-group">
+      <a href="#assessment" class="cta-primary">Пройти тест</a>
+      <span class="cta-note">7 питань. 2 хвилини. Конфіденційно.</span>
+    </div>
+  </div>
+</section>
+
+<!-- TENSION -->
+<section class="tension">
+  <div class="container">
+    <div class="section-label">Тиха проблема</div>
+    <h2>Результати є. Визнання є.<br>А відчуття — що можете більше.</h2>
+    <div class="tension-grid">
+      <div class="tension-card">
+        <h3>Стеля кар'єри</h3>
+        <p>Ви доросли до рівня, де наступний крок незрозумілий. Більше зусиль — не означає більше результату.</p>
+      </div>
+      <div class="tension-card">
+        <h3>Самотність рішень</h3>
+        <p>Вам нема з ким обговорити те, що справді турбує. Команда — не партнер для стратегічних роздумів.</p>
+      </div>
+      <div class="tension-card">
+        <h3>Втома від ролі</h3>
+        <p>Ви граєте роль "сильного лідера" так довго, що забули — а хто ви насправді? Чого хочете саме ви?</p>
+      </div>
+      <div class="tension-card">
+        <h3>Розрив між "можу" і "роблю"</h3>
+        <p>Ви знаєте, що здатні на більше. Але щось невидиме тримає на місці. І це точно не брак знань.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- DIAGNOSTIC -->
+<section class="diagnostic">
+  <div class="diagnostic-inner">
+    <div class="section-label">Як це працює</div>
+    <h2>Стратегічна діагностика</h2>
+    <p class="diagnostic-sub">30 хвилин, які покажуть де ви зараз — і де можете бути через рік. Без порад. Без продажу. Тільки чесний розбір.</p>
+    <div class="diag-timeline">
+      <div class="diag-step">
+        <h3>Тест "Стеля впливу"</h3>
+        <p>7 питань, які визначають де ви втрачаєте енергію і потенціал. Результат — одразу на екрані.</p>
+      </div>
+      <div class="diag-step">
+        <h3>Персональна діагностика</h3>
+        <p>30 хвилин зі мною. Розбираємо вашу ситуацію: що тримає, що блокує, де прихований ресурс.</p>
+      </div>
+      <div class="diag-step">
+        <h3>Ясність</h3>
+        <p>Ви отримуєте чітке розуміння: що саме не дає рости далі. І чи є сенс щось з цим робити разом.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ASSESSMENT -->
+<section class="assessment" id="assessment">
+  <div class="assessment-inner">
+    <h2>Тест: Ваша стеля впливу</h2>
+    <p class="assessment-sub">Відповідайте чесно — це для вас, не для мене.</p>
+    <div class="quiz-progress">
+      <div class="quiz-progress-bar" id="progressBar" style="width: 14%"></div>
+    </div>
+
+    <div id="quizContainer"></div>
+
+    <div class="quiz-result" id="quizResult">
+      <div class="result-label">Ваш результат</div>
+      <div class="quiz-score" id="scoreValue">0<span>/35</span></div>
+      <div class="score-bar-wrap">
+        <div class="score-bar-fill" id="scoreBar" style="width: 0%"></div>
+      </div>
+      <p class="quiz-verdict" id="scoreVerdict"></p>
+      <a href="#form" class="cta-primary">Записатись на стратегічну сесію</a>
+    </div>
+  </div>
+</section>
+
+<!-- WHO -->
+<section class="who">
+  <div class="who-inner">
+    <div class="who-photo">Фото Іри</div>
+    <div class="who-text">
+      <div class="section-label">Хто проводить діагностику</div>
+      <h2>Іра Анк</h2>
+      <p>Я чую фальш там, де інші чують норму — і налаштовую оркестр так, щоб кожен інструмент звучав на повну.</p>
+      <p>Працюю з лідерами, яким потрібен не ментор і не тренер — а партнер, з яким можна бути чесним.</p>
+      <ul class="who-list">
+        <li>Сертифікований фахівець методу Unlocking (Олександр Ісаєв)</li>
+        <li>Медична освіта — розуміння людської природи на глибокому рівні</li>
+        <li>Шлях від рекрутера до адмін-директора — знаю управління зсередини</li>
+        <li>Довгострокова робота: від "щось не так" до стратегічних проривів</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- FORM -->
+<section class="form-section" id="form">
+  <div class="form-inner">
+    <h2>Записатись на діагностику</h2>
+    <p>30 хвилин. Конфіденційно. Без зобов'язань.<br>Тільки ви, ваша ситуація і чесна розмова.</p>
+    <form id="contactForm">
+      <div class="form-stack">
+        <div class="form-row">
+          <input type="text" class="form-input" placeholder="Ваше ім'я" required>
+          <input type="text" class="form-input" placeholder="Посада / роль">
+        </div>
+        <input type="email" class="form-input" placeholder="Email" required>
+        <input type="tel" class="form-input" placeholder="Телефон або Telegram">
+        <input type="text" class="form-input" placeholder="Що саме хотіли б обговорити? (необов'язково)">
+      </div>
+      <button type="submit" class="form-submit">Записатись на стратегічну сесію</button>
+      <p class="form-note">Ваші дані — конфіденційні. Відповідь протягом 24 годин.</p>
+    </form>
+  </div>
+</section>
+
+<footer>
+  <p>&copy; 2026 Іра Анк. Стратегічна діагностика для лідерів.</p>
+  <p style="margin-top: 8px;"><a href="https://instagram.com/iraank_coach" target="_blank">Instagram</a></p>
+</footer>
+
+<script>
+const questions = [
+  {
+    q: "Як часто ви відчуваєте, що ваш вплив не відповідає вашій посаді?",
+    sub: "Не про повноваження — а про реальний вплив на рішення і людей",
+    opts: [
+      { text: "Постійно — мене не чують, хоч я маю право голосу", score: 1 },
+      { text: "Часто — вплив є, але не там де хочу", score: 2 },
+      { text: "Іноді — в деяких напрямках все добре, в інших — ні", score: 3 },
+      { text: "Рідко — мій вплив зростає, але хочу більше", score: 4 },
+      { text: "Практично ніколи — я впливаю саме там де вважаю важливим", score: 5 }
+    ]
+  },
+  {
+    q: "Що ви відчуваєте в неділю ввечері?",
+    sub: "Чесна відповідь, не 'правильна'",
+    opts: [
+      { text: "Тривогу — тиждень лякає ще до початку", score: 1 },
+      { text: "Втому — відпочинок не допоміг", score: 2 },
+      { text: "Нейтрально — просто ще один тиждень", score: 3 },
+      { text: "Готовність — є план і є сили", score: 4 },
+      { text: "Азарт — не можу дочекатись понеділка", score: 5 }
+    ]
+  },
+  {
+    q: "Коли останній раз ви зробили щось, що вас по-справжньому лякало?",
+    sub: "Професійно — нова роль, рішення, розмова",
+    opts: [
+      { text: "Не пам'ятаю — уникаю ризиків", score: 1 },
+      { text: "Давно — зараз грає 'на збереження'", score: 2 },
+      { text: "Кілька місяців тому — але рідко", score: 3 },
+      { text: "Нещодавно — і це дало результат", score: 4 },
+      { text: "Постійно — я живу на межі зони комфорту", score: 5 }
+    ]
+  },
+  {
+    q: "Чи є у вас людина, з якою ви по-справжньому чесні щодо роботи?",
+    sub: "Не HR, не бос, не підлеглий — а партнер для роздумів",
+    opts: [
+      { text: "Ні — мені нема з ким це обговорити", score: 1 },
+      { text: "Є друзі — але вони не розуміють контекст", score: 2 },
+      { text: "Є ментор — але рідко бачимось", score: 3 },
+      { text: "Є одна людина — але хочу глибшої роботи", score: 4 },
+      { text: "Так — у мене є партнер для стратегічних роздумів", score: 5 }
+    ]
+  },
+  {
+    q: "Як ви оцінюєте свій баланс результат/енергія?",
+    sub: "Скільки ви вкладаєте vs скільки отримуєте",
+    opts: [
+      { text: "Вигоряю — результат є, але ціна зависока", score: 1 },
+      { text: "Дисбаланс — енергії менше, ніж потрібно", score: 2 },
+      { text: "Нестабільно — хороші і погані періоди чергуються", score: 3 },
+      { text: "В цілому добре — але є де оптимізувати", score: 4 },
+      { text: "Баланс — я знаю свої ресурси і берегу їх", score: 5 }
+    ]
+  },
+  {
+    q: "Якщо подивитись на вашу кар'єру через 3 роки — що ви бачите?",
+    opts: [
+      { text: "Туман — не розумію куди рухатись далі", score: 1 },
+      { text: "Страх — боюсь що залишусь на місці", score: 2 },
+      { text: "Варіанти — але не знаю який обрати", score: 3 },
+      { text: "Напрямок — є, але потрібна підтримка", score: 4 },
+      { text: "Ясність — знаю куди іду і як туди дістатись", score: 5 }
+    ]
+  },
+  {
+    q: "Що б ви зробили, якби точно знали що не провалитесь?",
+    opts: [
+      { text: "Змінив би все — роботу, роль, індустрію", score: 1 },
+      { text: "Запустив би свій проєкт паралельно", score: 2 },
+      { text: "Попросив би про підвищення / нову роль", score: 3 },
+      { text: "Взяв би масштабніший проєкт", score: 4 },
+      { text: "Я вже роблю те, що хочу", score: 5 }
+    ]
+  }
+];
+
+let currentQ = 0;
+let answers = new Array(questions.length).fill(null);
+
+function renderQuestion() {
+  const container = document.getElementById('quizContainer');
+  const q = questions[currentQ];
+
+  let html = `<div class="quiz-card">
+    <div class="quiz-q">${currentQ + 1}/${questions.length}. ${q.q}${q.sub ? '<small>' + q.sub + '</small>' : ''}</div>
+    <div class="quiz-options">`;
+
+  q.opts.forEach((opt, i) => {
+    const selected = answers[currentQ] === i ? ' selected' : '';
+    html += `<div class="quiz-option${selected}" onclick="selectOption(${i})">${opt.text}</div>`;
+  });
+
+  html += `</div></div>
+    <div class="quiz-nav">
+      <button class="quiz-btn quiz-btn-back" onclick="prevQ()" ${currentQ === 0 ? 'disabled' : ''}>Назад</button>
+      <button class="quiz-btn quiz-btn-next" onclick="nextQ()" ${answers[currentQ] === null ? 'disabled' : ''}>${currentQ === questions.length - 1 ? 'Побачити результат' : 'Далі'}</button>
+    </div>`;
+
+  container.innerHTML = html;
+  document.getElementById('progressBar').style.width = ((currentQ + 1) / questions.length * 100) + '%';
+}
+
+function selectOption(i) { answers[currentQ] = i; renderQuestion(); }
+function nextQ() {
+  if (answers[currentQ] === null) return;
+  if (currentQ < questions.length - 1) { currentQ++; renderQuestion(); }
+  else showResult();
+}
+function prevQ() { if (currentQ > 0) { currentQ--; renderQuestion(); } }
+
+function showResult() {
+  let total = 0;
+  answers.forEach((a, i) => { total += questions[i].opts[a].score; });
+
+  document.getElementById('quizContainer').style.display = 'none';
+  document.getElementById('progressBar').parentElement.style.display = 'none';
+  const result = document.getElementById('quizResult');
+  result.style.display = 'block';
+  document.getElementById('scoreValue').innerHTML = total + '<span>/35</span>';
+
+  setTimeout(() => {
+    document.getElementById('scoreBar').style.width = (total / 35 * 100) + '%';
+  }, 100);
+
+  let verdict = '';
+  if (total <= 12) {
+    verdict = 'Ви працюєте на межі — і платите за це енергією, здоров\'ям, відчуттям сенсу. Діагностика покаже, що конкретно забирає найбільше — і що з цим робити.';
+  } else if (total <= 20) {
+    verdict = 'Ви сильний лідер, але є невидиме тертя, яке з\'їдає вашу ефективність. На стратегічній сесії знайдемо, де саме — і що дасть найбільший ефект.';
+  } else if (total <= 28) {
+    verdict = 'У вас є і ресурси, і бачення. Але ви відчуваєте — наступний рівень вимагає чогось іншого. Стратегічна сесія покаже що саме.';
+  } else {
+    verdict = 'Вражаюча ясність і сила. Вам потрібен не порадник — а партнер для масштабних стратегічних рішень. Давайте поговоримо.';
+  }
+  document.getElementById('scoreVerdict').textContent = verdict;
+}
+
+renderQuestion();
+
+document.querySelectorAll('a[href^="#"]').forEach(a => {
+  a.addEventListener('click', e => {
+    e.preventDefault();
+    document.querySelector(a.getAttribute('href')).scrollIntoView({ behavior: 'smooth' });
+  });
+});
+</script>
+</body>
+</html>

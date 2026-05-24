@@ -1,0 +1,1046 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Діагностика точки росту вашого бізнесу — Іра Анк</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+:root {
+  --emerald: #006B4E;
+  --emerald-dark: #004D38;
+  --emerald-deep: #002E22;
+  --emerald-light: #E8F5F0;
+  --gold: #C5A55A;
+  --gold-light: #F5EFE0;
+  --gold-pale: #FAF7F0;
+  --dark: #1A1A1A;
+  --gray: #6B7280;
+  --white: #FFFFFF;
+  --bg: #FAFAF8;
+}
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body {
+  font-family: 'Inter', -apple-system, sans-serif;
+  color: var(--dark);
+  background: var(--bg);
+  line-height: 1.7;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* HERO */
+.hero {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background: #0A0A0A;
+  position: relative;
+  overflow: hidden;
+  padding: 30px 24px 50px;
+  text-align: center;
+}
+.hero::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(ellipse 60% 50% at 50% 35%, rgba(0, 107, 78, 0.22) 0%, transparent 60%),
+    radial-gradient(ellipse 40% 30% at 50% 70%, rgba(197, 165, 90, 0.12) 0%, transparent 60%);
+  pointer-events: none;
+}
+.hero::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-image:
+    linear-gradient(rgba(255,255,255,0.025) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255,255,255,0.025) 1px, transparent 1px);
+  background-size: 56px 56px;
+  mask-image: radial-gradient(ellipse 70% 60% at 50% 50%, black 30%, transparent 80%);
+  -webkit-mask-image: radial-gradient(ellipse 70% 60% at 50% 50%, black 30%, transparent 80%);
+  pointer-events: none;
+}
+
+/* COLLAGE */
+.hero-collage {
+  position: relative;
+  width: 100%;
+  max-width: 1180px;
+  height: 440px;
+  margin-bottom: 40px;
+  z-index: 2;
+}
+@media (max-width: 640px) {
+  .hero-collage { height: 240px; margin-bottom: 24px; }
+}
+.collage-card {
+  position: absolute;
+  border-radius: 18px;
+  overflow: hidden;
+  box-shadow:
+    0 30px 60px -20px rgba(0,0,0,0.7),
+    0 0 0 1px rgba(255,255,255,0.06) inset;
+  background: #1a1a1a;
+  transition: transform 0.5s cubic-bezier(.2,.8,.2,1);
+}
+.collage-card img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  will-change: transform;
+  transition: transform 0.4s ease-out;
+}
+@keyframes kenburns-zoom {
+  0%   { transform: scale(1.0)  translate(0, 0); }
+  50%  { transform: scale(1.15) translate(-2%, -1%); }
+  100% { transform: scale(1.0)  translate(0, 0); }
+}
+.c1::after, .c2::after, .c4::after, .c6::after, .c7::after, .c8::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(115deg,
+    transparent 35%,
+    rgba(255,240,200,0.35) 50%,
+    transparent 65%);
+  background-size: 250% 100%;
+  background-position: -100% 0;
+  opacity: 0;
+  pointer-events: none;
+  mix-blend-mode: screen;
+}
+.c1:hover img, .c2:hover img, .c4:hover img,
+.c6:hover img, .c7:hover img, .c8:hover img {
+  animation: kenburns-zoom 6s ease-in-out infinite;
+}
+.c1:hover::after, .c2:hover::after, .c4:hover::after,
+.c6:hover::after, .c7:hover::after, .c8:hover::after {
+  opacity: 1;
+  animation: shimmer 2.6s ease-in-out infinite;
+}
+@keyframes shimmer {
+  0%   { background-position: -100% 0; }
+  100% { background-position: 200%  0; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .collage-card img { animation: none !important; }
+  .collage-card::after { animation: none !important; opacity: 0 !important; }
+}
+.collage-card:hover { animation-play-state: paused; z-index: 20; }
+.collage-card {
+  --tx: 0%;
+  --ty: 0%;
+  --r: 0deg;
+  animation: drift 12s ease-in-out infinite;
+}
+.collage-card { width: 180px; height: 180px; }
+.c1 { top: 4%;  left: 50%; --tx: -210%; --r: -10deg; z-index: 4; animation-duration: 32s; animation-delay: -2s;  }
+.c2 { top: 2%;  left: 50%; --tx: -105%; --r: -5deg;  z-index: 5; animation-duration: 36s; animation-delay: -5s;  }
+.c3 { top: 0;   left: 50%; --tx: 0%;    --r: 2deg;   z-index: 8; animation-duration: 40s; animation-delay: -1s;  }
+.c4 { top: 2%;  left: 50%; --tx: 105%;  --r: 7deg;   z-index: 6; animation-duration: 34s; animation-delay: -7s;  }
+.c5 { top: 56%; left: 50%; --tx: -210%; --r: -8deg;  z-index: 4; animation-duration: 38s; animation-delay: -3s;  }
+.c6 { top: 58%; left: 50%; --tx: -105%; --r: -3deg;  z-index: 5; animation-duration: 36s; animation-delay: -6s;  }
+.c7 { top: 56%; left: 50%; --tx: 0%;    --r: 4deg;   z-index: 7; animation-duration: 42s; animation-delay: -4s;  }
+.c8 { top: 58%; left: 50%; --tx: 105%;  --r: 10deg;  z-index: 4; animation-duration: 32s; animation-delay: -8s;  }
+@keyframes drift {
+  0%   { transform: translate(var(--tx), var(--ty)) rotate(var(--r)); }
+  50%  { transform: translate(calc(var(--tx) + 4px), calc(var(--ty) - 4px)) rotate(var(--r)); }
+  100% { transform: translate(var(--tx), var(--ty)) rotate(var(--r)); }
+}
+@media (max-width: 640px) {
+  .collage-card { width: 78px; height: 78px; }
+  .c1 { --tx: -200%; }
+  .c2 { --tx: -100%; }
+  .c3 { --tx: 0%;    }
+  .c4 { --tx: 100%;  }
+  .c5 { --tx: -200%; }
+  .c6 { --tx: -100%; }
+  .c7 { --tx: 0%;    }
+  .c8 { --tx: 100%;  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .collage-card { animation: none; transform: translate(var(--tx), var(--ty)) rotate(var(--r)); }
+}
+
+.hero-content { position: relative; z-index: 2; max-width: 720px; }
+.hero-ver {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  padding: 6px 16px;
+  border: 1px solid rgba(197, 165, 90, 0.25);
+  background: rgba(197, 165, 90, 0.05);
+  border-radius: 100px;
+  font-family: 'Inter', sans-serif;
+  font-size: 12px;
+  font-weight: 500;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: var(--gold);
+  margin-bottom: 28px;
+}
+.hero-ver::before {
+  content: '';
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--gold);
+  box-shadow: 0 0 12px var(--gold);
+}
+.hero h1 {
+  font-family: 'Playfair Display', serif;
+  font-size: clamp(34px, 6vw, 58px);
+  font-weight: 700;
+  color: var(--white);
+  line-height: 1.1;
+  margin-bottom: 24px;
+  letter-spacing: -0.02em;
+}
+.hero h1 em {
+  font-style: italic;
+  color: var(--gold);
+  font-weight: 400;
+}
+.hero-sub {
+  font-size: 18px;
+  color: rgba(255,255,255,0.6);
+  max-width: 540px;
+  margin: 0 auto 40px;
+  font-weight: 300;
+  line-height: 1.7;
+}
+.hero-cta {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  padding: 16px 36px;
+  background: var(--white);
+  color: var(--dark);
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 15px;
+  border-radius: 100px;
+  transition: all 0.3s ease;
+  letter-spacing: 0.2px;
+  box-shadow: 0 0 0 1px rgba(255,255,255,0.1), 0 20px 50px -10px rgba(197,165,90,0.25);
+}
+.hero-cta::after {
+  content: '→';
+  font-size: 18px;
+  transition: transform 0.3s ease;
+}
+.hero-cta:hover {
+  background: var(--gold);
+  transform: translateY(-2px);
+  box-shadow: 0 0 0 1px rgba(197,165,90,0.4), 0 24px 60px -10px rgba(197,165,90,0.4);
+}
+.hero-cta:hover::after { transform: translateX(4px); }
+.hero-note {
+  margin-top: 18px;
+  font-size: 13px;
+  color: rgba(255,255,255,0.3);
+  letter-spacing: 0.3px;
+}
+
+/* SECTION HELPERS */
+.section-label {
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 2.5px;
+  text-transform: uppercase;
+  color: var(--gold);
+  margin-bottom: 16px;
+}
+.container { max-width: 800px; margin: 0 auto; padding: 0 24px; }
+
+/* PROBLEM */
+.problem {
+  padding: 100px 24px;
+  background: var(--white);
+}
+.problem-inner {
+  max-width: 640px;
+  margin: 0 auto;
+}
+.problem h2 {
+  font-family: 'Playfair Display', serif;
+  font-size: clamp(26px, 3.5vw, 38px);
+  line-height: 1.3;
+  margin-bottom: 40px;
+}
+.pain-list { list-style: none; }
+.pain-list li {
+  padding: 22px 0;
+  border-bottom: 1px solid #F0F0F0;
+  display: flex;
+  align-items: flex-start;
+  gap: 16px;
+  font-size: 17px;
+  color: var(--dark);
+  line-height: 1.6;
+}
+.pain-list li:last-child { border-bottom: none; }
+.pain-icon {
+  width: 8px;
+  height: 8px;
+  min-width: 8px;
+  background: var(--gold);
+  border-radius: 50%;
+  margin-top: 12px;
+}
+
+/* FRAMEWORK (how it works) */
+.framework {
+  padding: 100px 24px;
+  background: var(--gold-pale);
+}
+.framework-inner {
+  max-width: 800px;
+  margin: 0 auto;
+  text-align: center;
+}
+.framework h2 {
+  font-family: 'Playfair Display', serif;
+  font-size: clamp(26px, 3.5vw, 36px);
+  margin-bottom: 16px;
+}
+.framework-sub {
+  color: var(--gray);
+  font-size: 17px;
+  margin-bottom: 48px;
+  max-width: 520px;
+  margin-left: auto;
+  margin-right: auto;
+}
+.pillars {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+  margin-bottom: 48px;
+}
+@media (max-width: 640px) {
+  .pillars { grid-template-columns: 1fr; gap: 20px; }
+}
+.pillar {
+  background: var(--white);
+  border-radius: 16px;
+  padding: 36px 24px;
+  text-align: center;
+  border: 1px solid rgba(197,165,90,0.15);
+  transition: all 0.3s;
+}
+.pillar:hover {
+  border-color: var(--gold);
+  transform: translateY(-4px);
+  box-shadow: 0 12px 40px rgba(0,0,0,0.06);
+}
+.pillar-icon { font-size: 28px; margin-bottom: 14px; font-family: 'Playfair Display', serif; color: var(--emerald); }
+.pillar h3 {
+  font-family: 'Playfair Display', serif;
+  font-size: 22px;
+  margin-bottom: 10px;
+  color: var(--emerald-dark);
+}
+.pillar p { font-size: 14px; color: var(--gray); line-height: 1.6; }
+
+/* QUIZ */
+.quiz-section {
+  padding: 100px 24px;
+  background: var(--white);
+}
+.quiz-inner {
+  max-width: 640px;
+  margin: 0 auto;
+}
+.quiz-section h2 {
+  font-family: 'Playfair Display', serif;
+  font-size: clamp(26px, 3.5vw, 36px);
+  text-align: center;
+  margin-bottom: 8px;
+}
+.quiz-sub {
+  text-align: center;
+  color: var(--gray);
+  font-size: 16px;
+  margin-bottom: 40px;
+}
+.quiz-progress {
+  height: 4px;
+  background: #E5E7EB;
+  border-radius: 4px;
+  margin-bottom: 32px;
+  overflow: hidden;
+}
+.quiz-progress-bar {
+  height: 100%;
+  background: linear-gradient(90deg, var(--emerald), var(--gold));
+  border-radius: 4px;
+  transition: width 0.5s ease;
+}
+.quiz-card {
+  background: var(--bg);
+  border-radius: 16px;
+  padding: 40px;
+}
+.quiz-q {
+  font-size: 17px;
+  font-weight: 500;
+  margin-bottom: 24px;
+  line-height: 1.5;
+}
+.quiz-q small {
+  display: block;
+  font-size: 13px;
+  color: var(--gray);
+  font-weight: 400;
+  margin-top: 4px;
+}
+.quiz-options { display: flex; flex-direction: column; gap: 12px; }
+.quiz-option {
+  padding: 16px 20px;
+  background: var(--white);
+  border: 2px solid #E5E7EB;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: all 0.2s;
+  font-size: 15px;
+  line-height: 1.5;
+}
+.quiz-option:hover {
+  border-color: var(--emerald);
+  background: var(--emerald-light);
+}
+.quiz-option.selected {
+  border-color: var(--emerald);
+  background: var(--emerald-light);
+  font-weight: 500;
+}
+.quiz-nav {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 24px;
+}
+.quiz-btn {
+  padding: 14px 32px;
+  border: none;
+  border-radius: 8px;
+  font-size: 15px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s;
+  font-family: 'Inter', sans-serif;
+}
+.quiz-btn-back { background: transparent; color: var(--gray); }
+.quiz-btn-next { background: var(--emerald); color: var(--white); }
+.quiz-btn-next:hover { background: var(--emerald-dark); }
+.quiz-btn:disabled { opacity: 0.4; cursor: not-allowed; }
+
+/* RESULT */
+.quiz-result {
+  display: none;
+  text-align: center;
+  padding: 48px 32px;
+  border-radius: 16px;
+  background: var(--white);
+  border: 2px solid var(--emerald);
+}
+.result-label {
+  font-size: 12px;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: var(--emerald);
+  font-weight: 600;
+  margin-bottom: 8px;
+}
+.quiz-score {
+  font-size: 56px;
+  font-weight: 700;
+  color: var(--emerald-dark);
+  font-family: 'Playfair Display', serif;
+}
+.quiz-score span { font-size: 20px; color: var(--gray); }
+.quiz-verdict {
+  font-size: 16px;
+  color: var(--gray);
+  line-height: 1.7;
+  max-width: 480px;
+  margin: 24px auto 32px;
+}
+
+/* ABOUT */
+.about {
+  padding: 100px 24px;
+  background: var(--bg);
+}
+.about-inner {
+  max-width: 600px;
+  margin: 0 auto;
+  text-align: center;
+}
+.about-photo {
+  width: 160px;
+  height: 160px;
+  border-radius: 50%;
+  margin: 0 auto 28px;
+  overflow: hidden;
+}
+.about-photo img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+.about-inner h2 {
+  font-family: 'Playfair Display', serif;
+  font-size: 28px;
+  margin-bottom: 16px;
+}
+.about-inner p {
+  font-size: 16px;
+  color: var(--gray);
+  margin-bottom: 12px;
+}
+.about-credentials {
+  font-size: 14px !important;
+  letter-spacing: 0.3px;
+  color: var(--gray);
+  opacity: 0.85;
+  margin-top: 20px !important;
+}
+.about-quote {
+  font-family: 'Playfair Display', serif;
+  font-size: 18px;
+  font-style: italic;
+  color: var(--emerald-dark);
+  margin: 24px 0;
+  padding: 0 24px;
+}
+
+/* GUARANTEE */
+.guarantee {
+  padding: 80px 24px;
+  background: var(--gold-pale);
+}
+.guarantee-inner {
+  max-width: 600px;
+  margin: 0 auto;
+  text-align: center;
+}
+.guarantee .section-label { margin-bottom: 12px; }
+.guarantee h3 {
+  font-family: 'Playfair Display', serif;
+  font-size: 26px;
+  margin-bottom: 16px;
+  color: var(--emerald-dark);
+}
+.guarantee p {
+  color: var(--gray);
+  font-size: 16px;
+  line-height: 1.7;
+}
+
+/* FORM */
+.form-section {
+  padding: 100px 24px;
+  background: var(--dark);
+}
+.form-inner {
+  max-width: 520px;
+  margin: 0 auto;
+  text-align: center;
+}
+.form-inner h2 {
+  font-family: 'Playfair Display', serif;
+  font-size: clamp(26px, 3.5vw, 34px);
+  color: var(--white);
+  margin-bottom: 12px;
+}
+.form-inner > p {
+  color: rgba(255,255,255,0.5);
+  font-size: 16px;
+  margin-bottom: 40px;
+}
+.form-stack { display: flex; flex-direction: column; gap: 16px; }
+.form-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+}
+@media (max-width: 480px) {
+  .form-row { grid-template-columns: 1fr; }
+}
+.form-input {
+  padding: 16px 20px;
+  border: 1px solid rgba(255,255,255,0.12);
+  border-radius: 8px;
+  background: rgba(255,255,255,0.05);
+  color: var(--white);
+  font-size: 15px;
+  font-family: 'Inter', sans-serif;
+  outline: none;
+  transition: all 0.3s;
+}
+.form-input::placeholder { color: rgba(255,255,255,0.25); }
+.form-input:focus { border-color: var(--gold); }
+.form-submit {
+  width: 100%;
+  padding: 18px;
+  background: var(--gold);
+  color: var(--dark);
+  border: none;
+  border-radius: 8px;
+  font-size: 16px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s;
+  font-family: 'Inter', sans-serif;
+  margin-top: 8px;
+}
+.form-submit:hover { background: #D4B56A; }
+.form-note {
+  margin-top: 16px;
+  font-size: 13px;
+  color: rgba(255,255,255,0.25);
+}
+
+footer {
+  padding: 40px 24px;
+  text-align: center;
+  background: #111;
+  color: rgba(255,255,255,0.25);
+  font-size: 13px;
+}
+footer a { color: var(--gold); text-decoration: none; }
+</style>
+</head>
+<body>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-collage" aria-hidden="true">
+    <div class="collage-card c1"><img src="img/sunset-water.jpg" alt=""></div>
+    <div class="collage-card c2"><img src="img/mountain-lake.jpg" alt=""></div>
+    <div class="collage-card c3"><img src="img/ira-professional.jpg" alt=""></div>
+    <div class="collage-card c4"><img src="img/stockholm-bay.jpg" alt=""></div>
+    <div class="collage-card c5"><img src="img/celtics-beach.jpg" alt=""></div>
+    <div class="collage-card c6"><img src="img/stockholm-harbor.jpg" alt=""></div>
+    <div class="collage-card c7"><img src="img/mountain-reflection.jpg" alt=""></div>
+    <div class="collage-card c8"><img src="img/blue-charm-boat.jpg" alt=""></div>
+  </div>
+  <div class="hero-content">
+    <div class="hero-ver">Безкоштовна діагностика</div>
+    <h1>Де ваш бізнес <em>втрачає гроші</em> — і чому ви цього не бачите?</h1>
+    <p class="hero-sub">7 точних питань. 2 хвилини. Скоркард покаже, що саме блокує ріст — і де прихований найбільший ресурс.</p>
+    <a href="#quiz" class="hero-cta">Пройти тест за 2 хвилини</a>
+    <p class="hero-note">Без зобовʼязань. Результат одразу. Персональний розбір зі мною.</p>
+  </div>
+</section>
+
+<!-- PROBLEM -->
+<section class="problem">
+  <div class="problem-inner">
+    <div class="section-label">Знайоме?</div>
+    <h2>Бізнес росте — але повільніше, ніж міг би. І ви це відчуваєте.</h2>
+    <ul class="pain-list">
+      <li><div class="pain-icon"></div><div>Ви працюєте більше за всіх у команді — а результат не пропорційний зусиллям</div></li>
+      <li><div class="pain-icon"></div><div>Делегуєте — але все одно залишаєтесь «єдиною точкою відмови» у бізнесі</div></li>
+      <li><div class="pain-icon"></div><div>Є відчуття, що щось невидиме тримає на місці — але незрозуміло, що саме</div></li>
+      <li><div class="pain-icon"></div><div>Стратегічні рішення відкладаються, бо «зараз не час» або «треба ще подумати»</div></li>
+      <li><div class="pain-icon"></div><div>Більше грошей — більше хаосу. Масштабування лякає, а не надихає</div></li>
+    </ul>
+  </div>
+</section>
+
+<!-- FRAMEWORK -->
+<section class="framework">
+  <div class="framework-inner">
+    <div class="section-label">Як це працює</div>
+    <h2>Скоркард масштабування бізнесу</h2>
+    <p class="framework-sub">7 точних питань, які покажуть де саме бізнес «тече» — і де прихований найбільший ресурс для росту.</p>
+    <div class="pillars">
+      <div class="pillar">
+        <div class="pillar-icon">I</div>
+        <h3>Тест</h3>
+        <p>7 питань. 2 хвилини. Чесно відповідайте — це для вас, не для мене.</p>
+      </div>
+      <div class="pillar">
+        <div class="pillar-icon">II</div>
+        <h3>Результат</h3>
+        <p>Персональна оцінка: де ви зараз і що конкретно блокує ріст.</p>
+      </div>
+      <div class="pillar">
+        <div class="pillar-icon">III</div>
+        <h3>Розбір</h3>
+        <p>30-хвилинна діагностика зі мною. Без продажу — тільки розбір вашої ситуації.</p>
+      </div>
+    </div>
+    <a href="#quiz" class="hero-cta" style="background: var(--emerald); color: var(--white); box-shadow: 0 20px 50px -10px rgba(0,107,78,0.35);">Почати тест</a>
+  </div>
+</section>
+
+<!-- QUIZ -->
+<section class="quiz-section" id="quiz">
+  <div class="quiz-inner">
+    <h2>Скоркард масштабування</h2>
+    <p class="quiz-sub">Відповідайте чесно — перша думка правильна.</p>
+    <div class="quiz-progress">
+      <div class="quiz-progress-bar" id="progressBar" style="width: 14%"></div>
+    </div>
+    <div id="quizContainer"></div>
+    <div class="quiz-result" id="quizResult">
+      <div class="result-label">Ваш результат</div>
+      <div class="quiz-score" id="scoreValue">0<span>/35</span></div>
+      <p class="quiz-verdict" id="scoreVerdict"></p>
+      <a href="#form" class="hero-cta" style="background: var(--emerald); color: var(--white); box-shadow: 0 20px 50px -10px rgba(0,107,78,0.35);">Записатись на безкоштовну діагностику</a>
+    </div>
+  </div>
+</section>
+
+<!-- ABOUT -->
+<section class="about">
+  <div class="about-inner">
+    <div class="about-photo"><img src="img/ira-professional.jpg" alt="Іра Анк"></div>
+    <h2>Іра Анк</h2>
+    <p class="about-quote">"Я чую фальш там, де інші чують норму — і налаштовую оркестр так, щоб кожен інструмент звучав на повну. Працюю з підприємцями та керівниками, які будують не просто бізнес — а щось, що залишиться після них. Партнер, не вчитель."</p>
+    <p class="about-credentials">Mindset Coach Unlocking Method · Fractional HR Director · Сертифікований коуч школи Олександра Ісаєва — коуча мільйонерів і перших осіб.</p>
+  </div>
+</section>
+
+<!-- GUARANTEE -->
+<section class="guarantee">
+  <div class="guarantee-inner">
+    <div class="section-label">Чесно</div>
+    <h3>Чому це безкоштовно?</h3>
+    <p>Тому що я не вірю в продаж наосліп. Діагностика — це знайомство. Ви побачите, чи є сенс рухатись далі. Я побачу, чи зможу бути корисною. Рішення — завжди ваше.</p>
+  </div>
+</section>
+
+<!-- FORM -->
+<section class="form-section" id="form">
+  <div class="form-inner">
+    <h2>Записатись на діагностику</h2>
+    <p>30 хвилин. Онлайн. Без зобовʼязань.<br>Розберемо ваш результат і знайдемо головний блок на шляху до росту.</p>
+    <form id="contactForm" action="https://formsubmit.co/ajax/iraank@gmail.com" method="POST">
+      <input type="hidden" name="_subject" value="Нова заявка з лендингу — Скоркард масштабування">
+      <input type="hidden" name="_template" value="table">
+      <input type="hidden" name="_captcha" value="false">
+      <div class="form-stack">
+        <div class="form-row">
+          <input type="text" name="Імʼя" class="form-input" placeholder="Ваше імʼя" required>
+          <input type="tel" name="Телефон/Telegram" class="form-input" placeholder="Телефон або Telegram">
+        </div>
+        <input type="email" name="Email" class="form-input" placeholder="Email" required>
+        <input type="text" name="Бізнес і оборот" class="form-input" placeholder="Ваш бізнес і оборот (орієнтовно)">
+      </div>
+      <button type="submit" class="form-submit">Записатись на діагностику</button>
+      <p class="form-note" id="formNote">Конфіденційно. Відповідь протягом 24 годин.</p>
+    </form>
+    <script>
+      (function(){
+        const form = document.getElementById('contactForm');
+        const note = document.getElementById('formNote');
+        const btn  = form.querySelector('.form-submit');
+        form.addEventListener('submit', async function(e){
+          e.preventDefault();
+          btn.disabled = true;
+          const original = btn.textContent;
+          btn.textContent = 'Надсилаємо…';
+          try {
+            const res = await fetch(form.action, {
+              method: 'POST',
+              headers: { 'Accept': 'application/json' },
+              body: new FormData(form)
+            });
+            const json = await res.json().catch(() => ({}));
+            if (res.ok || json.success === 'true') {
+              form.reset();
+              note.textContent = '✓ Дякую! Я звʼяжуся з вами протягом 24 годин.';
+              note.style.color = '#C5A55A';
+              btn.textContent = 'Надіслано';
+            } else { throw new Error('submit failed'); }
+          } catch (err) {
+            note.textContent = '✗ Не вдалося надіслати. Спробуйте ще раз пізніше.';
+            note.style.color = '#c0392b';
+            btn.disabled = false;
+            btn.textContent = original;
+          }
+        });
+      })();
+    </script>
+  </div>
+</section>
+
+<footer>
+  <p>&copy; 2026 Іра Анк. Діагностика потенціалу для підприємців.</p>
+  <p style="margin-top: 8px;"><a href="https://instagram.com/iraank_coach" target="_blank">Instagram</a></p>
+</footer>
+
+<script>
+const questions = [
+  {
+    q: "Скільки часу ви витрачаєте на операційку vs стратегію?",
+    opts: [
+      { text: "90%+ операційка — стратегії немає часу", score: 1 },
+      { text: "70/30 — стратегія є, але постійно зривається", score: 2 },
+      { text: "50/50 — баланс є, але нестабільний", score: 3 },
+      { text: "30/70 — більшість часу на стратегії та розвитку", score: 4 },
+      { text: "Операційка повністю делегована", score: 5 }
+    ]
+  },
+  {
+    q: "Що станеться з бізнесом, якщо ви підете у відпустку на місяць?",
+    opts: [
+      { text: "Все зупиниться або сильно просяде", score: 1 },
+      { text: "Триматиметься, але з проблемами", score: 2 },
+      { text: "Працюватиме, але без розвитку", score: 3 },
+      { text: "Команда впорається — є системи і процеси", score: 4 },
+      { text: "Нічого не зміниться — бізнес працює без мене", score: 5 }
+    ]
+  },
+  {
+    q: "Як ви приймаєте стратегічні рішення?",
+    opts: [
+      { text: "Відкладаю — бо страшно або «не час»", score: 1 },
+      { text: "Приймаю на емоціях — потім жалію", score: 2 },
+      { text: "Аналізую довго — часто пізно", score: 3 },
+      { text: "Є процес — але не завжди довіряю собі", score: 4 },
+      { text: "Чітко і швидко — на основі цінностей і даних", score: 5 }
+    ]
+  },
+  {
+    q: "Як почувається ваша команда?",
+    opts: [
+      { text: "Плинність висока — люди постійно йдуть", score: 1 },
+      { text: "Тримаються — але без ініціативи", score: 2 },
+      { text: "Нормально — але не горять", score: 3 },
+      { text: "Сильна команда — але не вистачає лідерів", score: 4 },
+      { text: "Автономна — кожен на своєму місці", score: 5 }
+    ]
+  },
+  {
+    q: "Що ви відчуваєте, коли думаєте про x2 обороту?",
+    opts: [
+      { text: "Паніку — не уявляю як це витримати", score: 1 },
+      { text: "Тривогу — це означає ще більше хаосу", score: 2 },
+      { text: "Інтерес — але незрозуміло з чого почати", score: 3 },
+      { text: "Азарт — бачу шлях, але є сумніви", score: 4 },
+      { text: "Спокій — план є, ресурси є", score: 5 }
+    ]
+  },
+  {
+    q: "Чи є у вас чітке бачення бізнесу на 3 роки?",
+    opts: [
+      { text: "Ні — живу від місяця до місяця", score: 1 },
+      { text: "Є мрії — але без конкретики", score: 2 },
+      { text: "Є напрямок — але не оцифрований", score: 3 },
+      { text: "Є план — але сумніваюсь чи правильний", score: 4 },
+      { text: "Так — бачення чітке, команда його знає", score: 5 }
+    ]
+  },
+  {
+    q: "Скільки коштує ваш час за годину (чесно)?",
+    opts: [
+      { text: "Не рахував — просто працюю багато", score: 1 },
+      { text: "Менше ніж хотів би — занадто багато рутини", score: 2 },
+      { text: "Нормально — але міг би ефективніше", score: 3 },
+      { text: "Знаю ціну — і захищаю свій час", score: 4 },
+      { text: "Кожна година генерує максимальну цінність", score: 5 }
+    ]
+  }
+];
+
+let currentQ = 0;
+let answers = new Array(questions.length).fill(null);
+
+function renderQuestion() {
+  const container = document.getElementById('quizContainer');
+  const q = questions[currentQ];
+  let html = `<div class="quiz-card">
+    <div class="quiz-q">${currentQ + 1}/${questions.length}. ${q.q}</div>
+    <div class="quiz-options">`;
+  q.opts.forEach((opt, i) => {
+    const selected = answers[currentQ] === i ? ' selected' : '';
+    html += `<div class="quiz-option${selected}" onclick="selectOption(${i})">${opt.text}</div>`;
+  });
+  html += `</div></div>
+    <div class="quiz-nav">
+      <button class="quiz-btn quiz-btn-back" onclick="prevQ()" ${currentQ === 0 ? 'disabled' : ''}>Назад</button>
+      <button class="quiz-btn quiz-btn-next" onclick="nextQ()" ${answers[currentQ] === null ? 'disabled' : ''}>${currentQ === questions.length - 1 ? 'Побачити результат' : 'Далі'}</button>
+    </div>`;
+  container.innerHTML = html;
+  document.getElementById('progressBar').style.width = ((currentQ + 1) / questions.length * 100) + '%';
+}
+
+function selectOption(i) { answers[currentQ] = i; renderQuestion(); }
+function nextQ() {
+  if (answers[currentQ] === null) return;
+  if (currentQ < questions.length - 1) { currentQ++; renderQuestion(); }
+  else showResult();
+}
+function prevQ() { if (currentQ > 0) { currentQ--; renderQuestion(); } }
+
+function showResult() {
+  let total = 0;
+  answers.forEach((a, i) => { total += questions[i].opts[a].score; });
+  document.getElementById('quizContainer').style.display = 'none';
+  document.getElementById('progressBar').parentElement.style.display = 'none';
+  const result = document.getElementById('quizResult');
+  result.style.display = 'block';
+  document.getElementById('scoreValue').innerHTML = total + '<span>/35</span>';
+  let verdict = '';
+  if (total <= 12) {
+    verdict = 'Ваш бізнес тримається на вас — і це головний ризик. Ви — і двигун, і гальмо одночасно. Діагностика покаже, що конкретно розблокувати першим.';
+  } else if (total <= 20) {
+    verdict = 'Фундамент є — але є невидимі блоки, які не дають рости з тією швидкістю, на яку ви здатні. На діагностиці знайдемо головний.';
+  } else if (total <= 28) {
+    verdict = 'Ви вже сильні — але відчуваєте, що можете більше. Вам потрібен не порадник, а партнер, який бачить те, що ви самі не помічаєте.';
+  } else {
+    verdict = 'Вражаючий результат. Ви рідкісний тип підприємця. Діагностика для вас — це розмова на рівні стратегії: куди далі і що ще можливо.';
+  }
+  document.getElementById('scoreVerdict').textContent = verdict;
+}
+
+renderQuestion();
+
+document.querySelectorAll('a[href^="#"]').forEach(a => {
+  a.addEventListener('click', e => {
+    e.preventDefault();
+    document.querySelector(a.getAttribute('href')).scrollIntoView({ behavior: 'smooth' });
+  });
+});
+</script>
+
+<style>
+.svg-follower-stage {
+  position: fixed;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 9999;
+}
+@media (prefers-reduced-motion: reduce) {
+  .svg-follower-stage { display: none; }
+}
+</style>
+
+<svg class="svg-follower-stage" xmlns="http://www.w3.org/2000/svg"></svg>
+
+<script>
+(function(){
+  const COLORS = ['#C5A55A','#006B4E','#F5EFE0','#004D38','#FAFAF8'];
+  const REMOVE_DELAY = 450;
+  const SVG_NS = 'http://www.w3.org/2000/svg';
+  const stage = document.querySelector('.svg-follower-stage');
+
+  class Follower {
+    constructor(color) {
+      this.color = color;
+      this.points = [];
+      this.line = document.createElementNS(SVG_NS, 'path');
+      this.line.style.fill = color;
+      this.line.style.stroke = color;
+      this.line.style.strokeWidth = '1';
+      stage.appendChild(this.line);
+    }
+    drift() { return (Math.random() - 0.5) * 3; }
+    add(pos) {
+      const dir = { x: 0, y: 0 };
+      if (this.points[0]) {
+        dir.x = (pos.x - this.points[0].position.x) * 0.25;
+        dir.y = (pos.y - this.points[0].position.y) * 0.25;
+      }
+      const point = {
+        position: pos,
+        time: Date.now(),
+        drift: { x: this.drift() + dir.x / 2, y: this.drift() + dir.y / 2 },
+        age: 0,
+        direction: dir,
+      };
+      const chance = 0.1;
+      const r = Math.random();
+      if      (r < chance)     this.makeCircle(point);
+      else if (r < chance * 2) this.makeSquare(point);
+      else if (r < chance * 3) this.makeTriangle(point);
+      this.points.unshift(point);
+    }
+    createLine(points) {
+      if (!points.length) return '';
+      const path = ['M'];
+      let forward = true, i = 0;
+      while (i >= 0) {
+        const p = points[i];
+        const ox = p.direction.x * ((i - points.length) / points.length) * 0.6;
+        const oy = p.direction.y * ((i - points.length) / points.length) * 0.6;
+        const x = p.position.x + (forward ? oy : -oy);
+        const y = p.position.y + (forward ? ox : -ox);
+        p.age += 0.2;
+        path.push(String(x + p.drift.x * p.age));
+        path.push(String(y + p.drift.y * p.age));
+        i += forward ? 1 : -1;
+        if (i === points.length) { i--; forward = false; }
+      }
+      return path.join(' ');
+    }
+    trim() {
+      if (this.points.length) {
+        const last = this.points[this.points.length - 1];
+        if (last.time < Date.now() - REMOVE_DELAY) this.points.pop();
+      }
+      this.line.setAttribute('d', this.createLine(this.points));
+    }
+    makeCircle(point) {
+      const radius = Math.abs(point.direction.x) + Math.abs(point.direction.y);
+      const c = document.createElementNS(SVG_NS, 'circle');
+      c.setAttribute('r', String(radius));
+      c.setAttribute('cx', '0');
+      c.setAttribute('cy', '0');
+      c.style.fill = this.color;
+      this.moveShape(c, point);
+    }
+    makeSquare(point) {
+      const size = (Math.abs(point.direction.x) + Math.abs(point.direction.y)) * 1.5;
+      const r = document.createElementNS(SVG_NS, 'rect');
+      r.setAttribute('width', String(size));
+      r.setAttribute('height', String(size));
+      r.style.fill = this.color;
+      this.moveShape(r, point);
+    }
+    makeTriangle(point) {
+      const size = (Math.abs(point.direction.x) + Math.abs(point.direction.y)) * 1.5;
+      const t = document.createElementNS(SVG_NS, 'polygon');
+      t.setAttribute('points', `0,0 ${size},${size/2} 0,${size}`);
+      t.style.fill = this.color;
+      this.moveShape(t, point);
+    }
+    moveShape(shape, point) {
+      stage.appendChild(shape);
+      const dx = point.position.x + point.direction.x * (Math.random() * 20) + point.drift.x * (Math.random() * 10);
+      const dy = point.position.y + point.direction.y * (Math.random() * 20) + point.drift.y * (Math.random() * 10);
+      shape.style.transform = `translate(${point.position.x}px, ${point.position.y}px)`;
+      shape.style.transition = 'transform 0.5s ease-out, opacity 0.5s ease-out';
+      requestAnimationFrame(() => {
+        shape.style.transform = `translate(${dx}px, ${dy}px) scale(0) rotate(${Math.random()*360}deg)`;
+        setTimeout(() => { if (stage.contains(shape)) stage.removeChild(shape); }, 520);
+      });
+    }
+  }
+
+  const followers = COLORS.map(c => new Follower(c));
+  function add(x, y) { followers.forEach(f => f.add({ x, y })); }
+  function loop() {
+    followers.forEach(f => f.trim());
+    requestAnimationFrame(loop);
+  }
+  loop();
+  document.addEventListener('mousemove', e => add(e.clientX, e.clientY));
+  document.addEventListener('touchmove', e => {
+    if (e.touches[0]) add(e.touches[0].clientX, e.touches[0].clientY);
+  }, { passive: true });
+})();
+</script>
+</body>
+</html>
